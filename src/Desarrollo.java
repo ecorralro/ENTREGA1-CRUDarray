@@ -37,13 +37,8 @@ public class Desarrollo {
 	
 
 	// add string
-	public static String addString(String texto) {
-		System.out.println(texto);
-		String cadena = Utilidades.pedirString();
-		
-
-		return cadena;
-	}// buscar posicion "vacía"
+	
+	// buscar posicion "vacía"
 
 	/*public static int buscarPosicionVacia(String[] cadenas) {
 		int posicion = 0;
