@@ -75,11 +75,6 @@ public class Principal {
 		return opcion;
 	}
 
-	private static void opcionesMenu(int opcion) {
-		int posicion;
-		String[] cadenas = new String[20];
-
-	}
 
 	private static int buscarPosicionVacia(String[] nombres, String[] denominaciones, String[] precios) {
 		int posicion = 4;
