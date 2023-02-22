@@ -4,10 +4,11 @@ public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] nombres = Desarrollo.inicializarArrays();
-		String[] denominaciones = Desarrollo.inicializarArrays();
-		String[] precios = Desarrollo.inicializarArrays();
+		String[] nombres=new String[20];/* = Desarrollo.inicializarArrays();*/
+		String[] denominaciones=new String[20];/* = Desarrollo.inicializarArrays();*/
+		String[] precios=new String[20];/* = Desarrollo.inicializarArrays();*/
 		int posicion;
+		String busqueda;
 		/*
 		 * nombres[0] = Desarrollo.addString("dime un nombre");
 		 * System.out.println(Arrays.toString(nombres));
@@ -24,6 +25,7 @@ public class Principal {
 				nombres[posicion] = addString("nombre de botella", nombres);
 				denominaciones[posicion] = addString("denominacion", denominaciones);
 				precios[posicion] = addString("precio", precios);
+				System.out.println(posicion);
 				break;
 			case 2:
 				System.out.println("MODIFICAR");
@@ -33,8 +35,18 @@ public class Principal {
 				break;
 			case 4:
 				System.out.println("BUSCAR");
+				busqueda=Utilidades.pedirStringTexto("Que quieres buscar?");
+				posicion=buscarPosicionUsuario(busqueda, nombres, denominaciones, precios);
+				System.out.println("El nombre de la botella que buscas es "+nombres[posicion]+" con la denominación de origen "+denominaciones[posicion]+" con un precio de "+precios[posicion]);
 				break;
 			case 5:
+				System.out.println("MOSTRAR");
+				System.out.println(Arrays.toString(nombres));
+				System.out.println(Arrays.toString(denominaciones));
+				System.out.println(Arrays.toString(precios));
+				
+				break;
+			case 6:
 				System.out.println("SALIR");
 				break;
 
@@ -43,7 +55,7 @@ public class Principal {
 				break;
 			}
 
-		} while (opcion != 5);
+		} while (opcion != 6);
 		System.out.println("fin");
 		System.out.println(Arrays.toString(nombres));
 		System.out.println(Arrays.toString(denominaciones));
@@ -54,6 +66,7 @@ public class Principal {
 	public static String addString(String texto, String[] nombres) {
 		System.out.println(texto);
 		String cadena = Utilidades.pedirString();
+		cadena.toUpperCase();
 
 		return cadena;
 	}
@@ -77,13 +90,32 @@ public class Principal {
 
 
 	private static int buscarPosicionVacia(String[] nombres, String[] denominaciones, String[] precios) {
-		int posicion = 4;
+		int posicion = 0;
 		int longitud = 20;
 		int contador = 0;
 		boolean encontrado = true;
 
 		do {
-			if (nombres[posicion] == ("-")) {
+			if (nombres[posicion] == (null)) {
+
+			} else {
+				posicion++;
+			}
+
+		} while (!encontrado && posicion < longitud);
+
+		return posicion;
+	}
+
+	private static int buscarPosicionUsuario(String nombre,String[] nombres, String[] denominaciones, String[] precios) {
+		int posicion = 0;
+		int longitud = 20;
+		int contador = 0;
+		boolean encontrado = true;
+		nombre=Utilidades.pedirString();
+		nombre.toUpperCase();
+		do {
+			if (nombres[posicion] == (nombre)) {
 
 			} else {
 				posicion++;
