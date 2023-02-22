@@ -60,6 +60,7 @@ public class Utilidades {
 		return cadena;
 	}
 	public static void mensaje(String texto) {
+		System.out.println(texto);
 		
 	}
 

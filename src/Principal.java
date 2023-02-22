@@ -4,9 +4,9 @@ public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] nombres=new String[20];/* = Desarrollo.inicializarArrays();*/
-		String[] denominaciones=new String[20];/* = Desarrollo.inicializarArrays();*/
-		String[] precios=new String[20];/* = Desarrollo.inicializarArrays();*/
+		String[] nombres = new String[20];/* = Desarrollo.inicializarArrays(); */
+		String[] denominaciones = new String[20];/* = Desarrollo.inicializarArrays(); */
+		String[] precios = new String[20];/* = Desarrollo.inicializarArrays(); */
 		int posicion;
 		String busqueda;
 		/*
@@ -22,10 +22,17 @@ public class Principal {
 			case 1:// XXXXXXXX
 				System.out.println("AÑADIR");
 				posicion = buscarPosicionVacia(nombres, denominaciones, precios);
-				nombres[posicion] = addString("nombre de botella", nombres);
-				denominaciones[posicion] = addString("denominacion", denominaciones);
-				precios[posicion] = addString("precio", precios);
-				System.out.println(posicion);
+				if (nombres[posicion] == null) {
+					nombres[posicion] = addString("nombre de botella", nombres);
+					denominaciones[posicion] = addString("denominacion", denominaciones);
+					precios[posicion] = addString("precio", precios);
+					System.out.println(posicion);
+				} else {
+					Utilidades.mensaje("*********************");
+					Utilidades.mensaje("El espacio está lleno, debes borrar un registro primero.");
+					Utilidades.mensaje("*********************");
+					
+				}
 				break;
 			case 2:
 				System.out.println("MODIFICAR");
@@ -35,16 +42,18 @@ public class Principal {
 				break;
 			case 4:
 				System.out.println("BUSCAR");
-				busqueda=Utilidades.pedirStringTexto("Que quieres buscar?");
-				posicion=buscarPosicionUsuario(busqueda, nombres, denominaciones, precios);
-				System.out.println("El nombre de la botella que buscas es "+nombres[posicion]+" con la denominación de origen "+denominaciones[posicion]+" con un precio de "+precios[posicion]);
+				busqueda = Utilidades.pedirStringTexto("Que quieres buscar?");
+				posicion = buscarPosicionUsuario(busqueda, nombres, denominaciones, precios);
+				System.out.println(
+						"El nombre de la botella que buscas es " + nombres[posicion] + " con la denominación de origen "
+								+ denominaciones[posicion] + " con un precio de " + precios[posicion]);
 				break;
 			case 5:
 				System.out.println("MOSTRAR");
-				System.out.println(Arrays.toString(nombres));
-				System.out.println(Arrays.toString(denominaciones));
-				System.out.println(Arrays.toString(precios));
-				
+				System.out.println("Los nombres de las botellas almacenadas son "+Arrays.toString(nombres));
+				System.out.println("Las denominaciones de origen son "+Arrays.toString(denominaciones));
+				System.out.println("Los precios son "+Arrays.toString(precios));
+
 				break;
 			case 6:
 				System.out.println("SALIR");
@@ -88,7 +97,6 @@ public class Principal {
 		return opcion;
 	}
 
-
 	private static int buscarPosicionVacia(String[] nombres, String[] denominaciones, String[] precios) {
 		int posicion = 0;
 		int longitud = 20;
@@ -107,12 +115,13 @@ public class Principal {
 		return posicion;
 	}
 
-	private static int buscarPosicionUsuario(String nombre,String[] nombres, String[] denominaciones, String[] precios) {
+	private static int buscarPosicionUsuario(String nombre, String[] nombres, String[] denominaciones,
+			String[] precios) {
 		int posicion = 0;
 		int longitud = 20;
 		int contador = 0;
 		boolean encontrado = true;
-		nombre=Utilidades.pedirString();
+		nombre = Utilidades.pedirString();
 		nombre.toUpperCase();
 		do {
 			if (nombres[posicion] == (nombre)) {
