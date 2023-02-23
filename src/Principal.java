@@ -31,14 +31,32 @@ public class Principal {
 					Utilidades.mensaje("*********************");
 					Utilidades.mensaje("El espacio está lleno, debes borrar un registro primero.");
 					Utilidades.mensaje("*********************");
-					
+
 				}
 				break;
 			case 2:
 				System.out.println("MODIFICAR");
+				busqueda = Utilidades.pedirStringTexto("Que quieres buscar?");
+				posicion = buscarPosicionUsuario(busqueda, nombres, denominaciones, precios);
+				System.out.println(
+						"El nombre de la botella que buscas es " + nombres[posicion] + " con la denominación de origen "
+								+ denominaciones[posicion] + " con un precio de " + precios[posicion]);
+				nombres[posicion] = addString("nombre de botella", nombres);
+				denominaciones[posicion] = addString("denominacion", denominaciones);
+				precios[posicion] = addString("precio", precios);
+				System.out.println(posicion);
 				break;
 			case 3:
 				System.out.println("BORRAR");
+				busqueda = Utilidades.pedirStringTexto("Que quieres buscar?");
+				posicion = buscarPosicionUsuario(busqueda, nombres, denominaciones, precios);
+				System.out.println(
+						"El nombre de la botella que buscas es " + nombres[posicion] + " con la denominación de origen "
+								+ denominaciones[posicion] + " con un precio de " + precios[posicion]);
+				nombres[posicion] = null;
+				denominaciones[posicion] = null;
+				precios[posicion] = null;
+				System.out.println(posicion);
 				break;
 			case 4:
 				System.out.println("BUSCAR");
@@ -50,9 +68,9 @@ public class Principal {
 				break;
 			case 5:
 				System.out.println("MOSTRAR");
-				System.out.println("Los nombres de las botellas almacenadas son "+Arrays.toString(nombres));
-				System.out.println("Las denominaciones de origen son "+Arrays.toString(denominaciones));
-				System.out.println("Los precios son "+Arrays.toString(precios));
+				System.out.println("Los nombres de las botellas almacenadas son " + Arrays.toString(nombres));
+				System.out.println("Las denominaciones de origen son " + Arrays.toString(denominaciones));
+				System.out.println("Los precios son " + Arrays.toString(precios));
 
 				break;
 			case 6:
