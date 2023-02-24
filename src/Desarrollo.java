@@ -30,7 +30,8 @@ public class Desarrollo {
 		System.out.println("***2.MODIFICAR***");
 		System.out.println("***3.BORRAR***");
 		System.out.println("***4.BUSCAR***");
-		System.out.println("***5.SALIR***");
+		System.out.println("***5.MOSTRAR***");
+		System.out.println("***6.SALIR***");
 		System.out.println("*************");
 
 		opcion = Utilidades.pedirIntTexto("Elige una opcion");
@@ -59,14 +60,14 @@ public class Desarrollo {
 	 * @param precios
 	 * @return
 	 */
-	public static int buscarPosicionVacia(int vuelta, String[] nombres, String[] denominaciones, String[] precios) {
+	public static int buscarPosicionVacia(int vuelta,String[] nombres, String[] denominaciones, String[] precios) {
 		int posicion = vuelta;
 		int longitud = nombres.length;
 		int contador = 0;
 		boolean encontrado = true;
 
 		do {
-			if (nombres[posicion] == null) {
+			if (nombres[posicion]==null) {
 
 			} else {
 				posicion++;
@@ -79,8 +80,9 @@ public class Desarrollo {
 		return posicion;
 	}
 
-	public static int buscarPosicion(String nombre, String[] nombres, String[] denominaciones, String[] precios) {
-		int posicion = 0;
+	public static int buscarPosicion(int posicionBuscar, String nombre, String[] nombres, String[] denominaciones,
+			String[] precios) {
+		int posicion = posicionBuscar;
 		int longitud = nombres.length;
 		boolean encontrado = true;
 		nombre = busqueda();
@@ -111,13 +113,13 @@ public class Desarrollo {
 			String[] denominaciones, String[] precios) {
 		int posicion = posicionModificar;
 		int longitud = nombres.length;
-		boolean encontrado = true;
+		boolean encontrado = false;
 		nombre = busqueda();
 		nombre = nombre.toUpperCase();
 
 		do {
-			if (nombres[posicionModificar] == (nombre)) {
-
+			if (nombres[posicionModificar] == nombre) {
+				encontrado = true;
 			} else {
 				posicionModificar++;
 			}
@@ -135,12 +137,13 @@ public class Desarrollo {
 	 * @param precios
 	 * @return
 	 */
-	public static int buscarRegistroUsuario(int vuelta, String nombre, String[] nombres, String[] denominaciones,
+	public static int buscarRegistroUsuario(String busqueda, String[] nombres, String[] denominaciones,
 			String[] precios) {
-		int posicion = vuelta;
+		int posicion = -1;
 		int longitud = nombres.length;
-		boolean encontrado = true;
-		nombre = nombre.toUpperCase();
+		boolean encontrado = false;
+		int contador = 0;
+		busqueda = busqueda.toUpperCase();
 
 		/*
 		 * nombre = Utilidades.pedirStringTexto("Qué botella quieres buscar?");
@@ -148,14 +151,16 @@ public class Desarrollo {
 		 */
 
 		do {
-			if (nombres[posicion] == (nombre)) {
+			if (nombres[contador].equals(busqueda)) {
+				encontrado = true;
+				posicion=contador;
+				
 				Utilidades.mensaje("El nombre de la botella buscada es " + nombres[posicion]);
 				Utilidades.mensaje("con denominación de origen " + denominaciones[posicion]);
 				Utilidades.mensaje("y precio de " + precios[posicion]);
 
-			} else {
-				posicion++;
 			}
+			posicion++;
 
 		} while (!encontrado && posicion < longitud);
 		System.out.println(posicion + " clase");

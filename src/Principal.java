@@ -8,10 +8,11 @@ public class Principal {
 		String[] denominaciones = new String[20];/* = Desarrollo.inicializarArrays(); */
 		String[] precios = new String[20];/* = Desarrollo.inicializarArrays(); */
 		String cadena = null;
-		int posicion=0;
+		int posicion = 0;
 		String busqueda = "";
 		int opcion;
-		int posicionModificar=0;
+		int posicionBuscar = 0;
+		int posicionModificar = 0;
 		// muestro menu
 
 		do {
@@ -19,8 +20,9 @@ public class Principal {
 			switch (opcion) {
 			case 1:// XXXXXXXX
 				System.out.println("AÑADIR");
-				posicion = Desarrollo.buscarPosicionVacia(posicion,nombres, denominaciones, precios);
+				posicion = Desarrollo.buscarPosicionVacia(posicion, nombres, denominaciones, precios);
 				if (nombres[posicion] == null) {
+					
 					nombres[posicion] = Desarrollo.addString("nombre de botella", cadena);
 					denominaciones[posicion] = Desarrollo.addString("denominacion", cadena);
 					precios[posicion] = Desarrollo.addString("precio", cadena);
@@ -35,12 +37,17 @@ public class Principal {
 				break;
 			case 2:
 				System.out.println("MODIFICAR");
-				/*busqueda = Utilidades.pedirStringTexto("Que quieres modificar?");
-				busqueda = busqueda.toUpperCase();*/
-				posicionModificar = Desarrollo.buscarPosicion(busqueda, nombres, denominaciones, precios);
-				/*System.out.println(
-						"El nombre de la botella que buscas es " + nombres[posicion] + " con la denominación de origen "
-								+ denominaciones[posicion] + " con un precio de " + precios[posicion]);*/
+				/*
+				 * busqueda = Utilidades.pedirStringTexto("Que quieres modificar?"); busqueda =
+				 * busqueda.toUpperCase();
+				 */
+				posicionModificar = Desarrollo.buscarPosicion(posicionBuscar, busqueda, nombres, denominaciones,
+						precios);
+				/*
+				 * System.out.println( "El nombre de la botella que buscas es " +
+				 * nombres[posicion] + " con la denominación de origen " +
+				 * denominaciones[posicion] + " con un precio de " + precios[posicion]);
+				 */
 				nombres[posicionModificar] = Desarrollo.addString("nombre de nueva botella", cadena);
 				denominaciones[posicionModificar] = Desarrollo.addString("su denominacion", cadena);
 				precios[posicionModificar] = Desarrollo.addString("y su precio", cadena);
@@ -50,10 +57,12 @@ public class Principal {
 				System.out.println("BORRAR");
 				busqueda = Utilidades.pedirStringTexto("Que quieres borrar?");
 				busqueda = busqueda.toUpperCase();
-				posicion = Desarrollo.modificarRegistroUsuario(posicion,busqueda, nombres, denominaciones, precios);
-				/*System.out.println(
-						"El nombre de la botella que buscas es " + nombres[posicion] + " con la denominación de origen "
-								+ denominaciones[posicion] + " con un precio de " + precios[posicion]);*/
+				posicion = Desarrollo.modificarRegistroUsuario(posicion, busqueda, nombres, denominaciones, precios);
+				/*
+				 * System.out.println( "El nombre de la botella que buscas es " +
+				 * nombres[posicion] + " con la denominación de origen " +
+				 * denominaciones[posicion] + " con un precio de " + precios[posicion]);
+				 */
 				nombres[posicion] = null;
 				denominaciones[posicion] = null;
 				precios[posicion] = null;
@@ -62,11 +71,14 @@ public class Principal {
 			case 4:
 				System.out.println("BUSCAR");
 				busqueda = Utilidades.pedirStringTexto("Que quieres buscar?");
-				posicion = Desarrollo.buscarRegistroUsuario(posicion,busqueda, nombres, denominaciones, precios);
-				System.out.println(
-						"El nombre de la botella que buscas es " + nombres[posicion] + " con la denominación de origen "
-								+ denominaciones[posicion] + " con un precio de " + precios[posicion]);
-				System.out.println(posicion);
+				posicionBuscar = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
+				/*
+				 * System.out.println("El nombre de la botella que buscas es " +
+				 * nombres[posicionBuscar] + " con la denominación de origen " +
+				 * denominaciones[posicionBuscar] + " con un precio de " +
+				 * precios[posicionBuscar]);
+				 */
+				System.out.println(posicionBuscar);
 
 				break;
 			case 5:

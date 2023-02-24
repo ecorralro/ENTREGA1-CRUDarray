@@ -17,7 +17,6 @@ public class Utilidades {
 		Scanner lector = new Scanner(System.in);
 
 		numero = lector.nextInt();
-		lector.nextLine();
 
 		return numero;
 	}
@@ -28,7 +27,7 @@ public class Utilidades {
 
 		System.out.println(texto);
 		cadena = lector.nextLine();
-		lector.nextLine();
+		
 
 		return cadena;
 	}
@@ -37,7 +36,6 @@ public class Utilidades {
 		Scanner lector = new Scanner(System.in);
 
 		cadena = lector.nextLine();
-		lector.nextLine();
 
 		return cadena;
 	}
