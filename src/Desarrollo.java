@@ -80,7 +80,7 @@ public class Desarrollo {
 		return posicion;
 	}
 
-	public static int buscarPosicion(int posicionBuscar, String nombre, String[] nombres, String[] denominaciones,
+	public static int buscarPosicion(String nombre, String[] nombres, String[] denominaciones,
 			String[] precios) {
 		int posicion = 0;
 		int longitud = nombres.length;
