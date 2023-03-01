@@ -23,16 +23,16 @@ public class Desarrollo {
 	public static int mostrarMenu() {
 		int opcion;
 
-		System.out.println("***MENU***");
-		System.out.println("*************");
-		System.out.println("*************");
-		System.out.println("***1.AÑADIR***");
-		System.out.println("***2.MODIFICAR***");
-		System.out.println("***3.BORRAR***");
-		System.out.println("***4.BUSCAR***");
-		System.out.println("***5.MOSTRAR***");
-		System.out.println("***6.SALIR***");
-		System.out.println("*************");
+		System.out.println("    ***MENU***");
+		System.out.println("  *************");
+		System.out.println("  *************");
+		System.out.println("  ***1.AÑADIR***");
+		System.out.println("  ***2.MODIFICAR***");
+		System.out.println("  ***3.BORRAR***");
+		System.out.println("  ***4.BUSCAR***");
+		System.out.println("  ***5.MOSTRAR***");
+		System.out.println("  ***6.SALIR***");
+		System.out.println("  *************");
 
 		opcion = Utilidades.pedirIntTexto("Elige una opcion");
 		return opcion;
@@ -41,11 +41,11 @@ public class Desarrollo {
 	// AÑADIR
 	/**
 	 * 
-	 * @param texto
-	 * @param nombres
-	 * @return
+	 * @param texto reutilizable en el main
+	 * 
+	 * @return la cadena introducida por el ususario
 	 */
-	public static String addString(String texto, String contenido) {
+	public static String addString(String texto) {
 
 		String cadena = Utilidades.pedirStringTexto(texto);
 		cadena = cadena.toUpperCase();
@@ -60,15 +60,15 @@ public class Desarrollo {
 	 * @param precios
 	 * @return
 	 */
-	public static int buscarPosicionVacia(int vuelta,String[] nombres, String[] denominaciones, String[] precios) {
-		int posicion = vuelta;
+	public static int buscarPosicionVacia(String[] nombres, String[] denominaciones, String[] precios) {
+		int posicion = 0;
 		int longitud = nombres.length;
 		int contador = 0;
-		boolean encontrado = true;
+		boolean encontrado = false;
 
 		do {
-			if (nombres[posicion]==null) {
-
+			if (nombres[posicion] == null) {
+				encontrado=true;
 			} else {
 				posicion++;
 			}
@@ -82,14 +82,14 @@ public class Desarrollo {
 
 	public static int buscarPosicion(int posicionBuscar, String nombre, String[] nombres, String[] denominaciones,
 			String[] precios) {
-		int posicion = posicionBuscar;
+		int posicion = 0;
 		int longitud = nombres.length;
-		boolean encontrado = true;
+		boolean encontrado = false;
 		nombre = busqueda();
 		nombre = nombre.toUpperCase();
 		do {
 			if (nombres[posicion] == nombre) {
-
+				encontrado=true;
 			} else {
 				posicion++;
 			}
@@ -153,8 +153,8 @@ public class Desarrollo {
 		do {
 			if (nombres[contador].equals(busqueda)) {
 				encontrado = true;
-				posicion=contador;
-				
+				posicion = contador;
+
 				Utilidades.mensaje("El nombre de la botella buscada es " + nombres[posicion]);
 				Utilidades.mensaje("con denominación de origen " + denominaciones[posicion]);
 				Utilidades.mensaje("y precio de " + precios[posicion]);

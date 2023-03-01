@@ -20,12 +20,14 @@ public class Principal {
 			switch (opcion) {
 			case 1:// XXXXXXXX
 				System.out.println("AÑADIR");
-				posicion = Desarrollo.buscarPosicionVacia(posicion, nombres, denominaciones, precios);
+				posicion = Desarrollo.buscarPosicionVacia(nombres, denominaciones, precios);
 				if (nombres[posicion] == null) {
-					
-					nombres[posicion] = Desarrollo.addString("nombre de botella", cadena);
-					denominaciones[posicion] = Desarrollo.addString("denominacion", cadena);
-					precios[posicion] = Desarrollo.addString("precio", cadena);
+					cadena=Desarrollo.addString("nombre botella ");
+					nombres[posicion] = cadena;
+					cadena= Desarrollo.addString("denominacion ");
+					denominaciones[posicion] = cadena;
+					cadena=Desarrollo.addString("precio ");
+					precios[posicion] = cadena;
 					System.out.println(posicion);
 					System.out.println(nombres.length);
 				} else {
@@ -48,7 +50,7 @@ public class Principal {
 				 * nombres[posicion] + " con la denominación de origen " +
 				 * denominaciones[posicion] + " con un precio de " + precios[posicion]);
 				 */
-				nombres[posicionModificar] = Desarrollo.addString("nombre de nueva botella", cadena);
+			/*	nombres[posicionModificar] = Desarrollo.addString("nombre de nueva botella", cadena);
 				denominaciones[posicionModificar] = Desarrollo.addString("su denominacion", cadena);
 				precios[posicionModificar] = Desarrollo.addString("y su precio", cadena);
 				System.out.println(posicionModificar);

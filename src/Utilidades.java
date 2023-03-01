@@ -27,10 +27,10 @@ public class Utilidades {
 
 		System.out.println(texto);
 		cadena = lector.nextLine();
-		
 
 		return cadena;
 	}
+
 	public static String pedirString() {
 		String cadena;
 		Scanner lector = new Scanner(System.in);
@@ -51,15 +51,17 @@ public class Utilidades {
 		return rango;
 
 	}
-	public static String pasarMayus (String texto) {
+
+	public static String pasarMayus(String texto) {
 		String cadena;
-		cadena=texto.toUpperCase();
-		
+		cadena = texto.toUpperCase();
+
 		return cadena;
 	}
+
 	public static void mensaje(String texto) {
 		System.out.println(texto);
-		
+
 	}
 
 }
