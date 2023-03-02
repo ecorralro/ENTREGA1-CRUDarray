@@ -68,65 +68,16 @@ public class Desarrollo {
 
 		do {
 			if (nombres[posicion] == null) {
-				encontrado=true;
-			} else {
-				posicion++;
-			}
-
-		} while (!encontrado && posicion < nombres.length);
-		System.out.println(posicion + "metodo");
-		System.out.println(nombres.length + "metodo");
-
-		return posicion;
-	}
-
-	public static int buscarPosicion(String nombre, String[] nombres, String[] denominaciones,
-			String[] precios) {
-		int posicion = 0;
-		int longitud = nombres.length;
-		boolean encontrado = false;
-		nombre = busqueda();
-		nombre = nombre.toUpperCase();
-		do {
-			if (nombres[posicion] == nombre) {
-				encontrado=true;
-			} else {
-				posicion++;
-			}
-
-		} while (!encontrado && posicion < nombres.length);
-		System.out.println(posicion + "metodo");
-		System.out.println(nombres.length + "metodo");
-
-		return posicion;
-	}
-
-	/**
-	 * 
-	 * @param nombre
-	 * @param nombres
-	 * @param denominaciones
-	 * @param precios
-	 * @return
-	 */
-	public static int modificarRegistroUsuario(int posicionModificar, String nombre, String[] nombres,
-			String[] denominaciones, String[] precios) {
-		int posicion = posicionModificar;
-		int longitud = nombres.length;
-		boolean encontrado = false;
-		nombre = busqueda();
-		nombre = nombre.toUpperCase();
-
-		do {
-			if (nombres[posicionModificar] == nombre) {
 				encontrado = true;
 			} else {
-				posicionModificar++;
+				posicion++;
 			}
 
-		} while (!encontrado && posicionModificar < longitud);
+		} while (!encontrado && posicion < nombres.length);
+		System.out.println(posicion + "metodo");
+		System.out.println(nombres.length + "metodo");
 
-		return posicionModificar;
+		return posicion;
 	}
 
 	/**
@@ -145,11 +96,6 @@ public class Desarrollo {
 		int contador = 0;
 		busqueda = busqueda.toUpperCase();
 
-		/*
-		 * nombre = Utilidades.pedirStringTexto("Qué botella quieres buscar?");
-		 * nombre.toUpperCase();
-		 */
-
 		do {
 			if (nombres[contador].equals(busqueda)) {
 				encontrado = true;
@@ -160,7 +106,7 @@ public class Desarrollo {
 				Utilidades.mensaje("y precio de " + precios[posicion]);
 
 			}
-			posicion++;
+			contador++;
 
 		} while (!encontrado && posicion < longitud);
 		System.out.println(posicion + " clase");

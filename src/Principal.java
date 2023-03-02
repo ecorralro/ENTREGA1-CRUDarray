@@ -4,9 +4,9 @@ public class Principal {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] nombres = new String[20];/* = Desarrollo.inicializarArrays(); */
-		String[] denominaciones = new String[20];/* = Desarrollo.inicializarArrays(); */
-		String[] precios = new String[20];/* = Desarrollo.inicializarArrays(); */
+		String[] nombres = new String[2];/* = Desarrollo.inicializarArrays(); */
+		String[] denominaciones = new String[2];/* = Desarrollo.inicializarArrays(); */
+		String[] precios = new String[2];/* = Desarrollo.inicializarArrays(); */
 		String cadena = null;
 		int posicion = 0;
 		String busqueda = "";
@@ -22,11 +22,11 @@ public class Principal {
 				System.out.println("AÑADIR");
 				posicion = Desarrollo.buscarPosicionVacia(nombres, denominaciones, precios);
 				if (nombres[posicion] == null) {
-					cadena=Desarrollo.addString("nombre botella ");
+					cadena = Desarrollo.addString("nombre botella ");
 					nombres[posicion] = cadena;
-					cadena= Desarrollo.addString("denominacion ");
+					cadena = Desarrollo.addString("denominacion ");
 					denominaciones[posicion] = cadena;
-					cadena=Desarrollo.addString("precio ");
+					cadena = Desarrollo.addString("precio ");
 					precios[posicion] = cadena;
 					System.out.println(posicion);
 					System.out.println(nombres.length);
@@ -34,52 +34,36 @@ public class Principal {
 					Utilidades.mensaje("*********************");
 					Utilidades.mensaje("El espacio está lleno, debes borrar un registro primero.");
 					Utilidades.mensaje("*********************");
-
 				}
 				break;
 			case 2:
 				System.out.println("MODIFICAR");
-				/*
-				 * busqueda = Utilidades.pedirStringTexto("Que quieres modificar?"); busqueda =
-				 * busqueda.toUpperCase();
-				 */
-				posicionModificar = Desarrollo.buscarPosicion(posicionBuscar, busqueda, nombres, denominaciones,
-						precios);
-				/*
-				 * System.out.println( "El nombre de la botella que buscas es " +
-				 * nombres[posicion] + " con la denominación de origen " +
-				 * denominaciones[posicion] + " con un precio de " + precios[posicion]);
-				 */
-			/*	nombres[posicionModificar] = Desarrollo.addString("nombre de nueva botella", cadena);
-				denominaciones[posicionModificar] = Desarrollo.addString("su denominacion", cadena);
-				precios[posicionModificar] = Desarrollo.addString("y su precio", cadena);
-				System.out.println(posicionModificar);
+				busqueda = Utilidades.pedirStringTexto("Que quieres modificar?");
+				posicionModificar = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
+				cadena = Desarrollo.addString("nombre  de la nueva botella ");
+				nombres[posicionModificar] = cadena;
+				cadena = Desarrollo.addString(" su denominacion ");
+				denominaciones[posicionModificar] = cadena;
+				cadena = Desarrollo.addString(" y su precio ");
+				precios[posicionModificar] = cadena;
+
 				break;
+
 			case 3:
 				System.out.println("BORRAR");
 				busqueda = Utilidades.pedirStringTexto("Que quieres borrar?");
-				busqueda = busqueda.toUpperCase();
-				posicion = Desarrollo.modificarRegistroUsuario(posicion, busqueda, nombres, denominaciones, precios);
-				/*
-				 * System.out.println( "El nombre de la botella que buscas es " +
-				 * nombres[posicion] + " con la denominación de origen " +
-				 * denominaciones[posicion] + " con un precio de " + precios[posicion]);
-				 */
-				nombres[posicion] = null;
-				denominaciones[posicion] = null;
-				precios[posicion] = null;
+				posicionModificar = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
+				nombres[posicionModificar] = null;
+				denominaciones[posicionModificar] = null;
+				precios[posicionModificar] = null;
+
 				System.out.println(posicion);
 				break;
 			case 4:
 				System.out.println("BUSCAR");
 				busqueda = Utilidades.pedirStringTexto("Que quieres buscar?");
 				posicionBuscar = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
-				/*
-				 * System.out.println("El nombre de la botella que buscas es " +
-				 * nombres[posicionBuscar] + " con la denominación de origen " +
-				 * denominaciones[posicionBuscar] + " con un precio de " +
-				 * precios[posicionBuscar]);
-				 */
+
 				System.out.println(posicionBuscar);
 
 				break;
