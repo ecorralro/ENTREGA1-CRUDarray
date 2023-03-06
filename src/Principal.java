@@ -1,18 +1,26 @@
 import java.util.Arrays;
 
+/**
+ * Practica 1. CRUD Arrays.
+ * 
+ * @author Eugenio Corral
+ * @version 1
+ */
 public class Principal {
-
+/**
+ * 
+ * @param args
+ */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String[] nombres = new String[2];/* = Desarrollo.inicializarArrays(); */
-		String[] denominaciones = new String[2];/* = Desarrollo.inicializarArrays(); */
-		String[] precios = new String[2];/* = Desarrollo.inicializarArrays(); */
-		String cadena = null;
+		String[] nombres = Desarrollo.inicializarArrays(); 
+		String[] denominaciones = Desarrollo.inicializarArrays();
+		String[] precios = Desarrollo.inicializarArrays(); 
+		String cadena = "-";
 		int posicion = 0;
-		String busqueda = "";
+		String busqueda = "-";
 		int opcion;
-		int posicionBuscar = 0;
-		int posicionModificar = 0;
+		int longitud = nombres.length;
 		// muestro menu
 
 		do {
@@ -20,8 +28,9 @@ public class Principal {
 			switch (opcion) {
 			case 1:// XXXXXXXX
 				System.out.println("AÑADIR");
-				posicion = Desarrollo.buscarPosicionVacia(nombres, denominaciones, precios);
-				if (nombres[posicion] == null) {
+				posicion = Desarrollo.buscarPosicionVacia(busqueda,nombres, denominaciones, precios);
+				
+				if (nombres[posicion].equals(busqueda)) {
 					cadena = Desarrollo.addString("nombre botella ");
 					nombres[posicion] = cadena;
 					cadena = Desarrollo.addString("denominacion ");
@@ -39,32 +48,32 @@ public class Principal {
 			case 2:
 				System.out.println("MODIFICAR");
 				busqueda = Utilidades.pedirStringTexto("Que quieres modificar?");
-				posicionModificar = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
+				posicion = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
 				cadena = Desarrollo.addString("nombre  de la nueva botella ");
-				nombres[posicionModificar] = cadena;
+				nombres[posicion] = cadena;
 				cadena = Desarrollo.addString(" su denominacion ");
-				denominaciones[posicionModificar] = cadena;
+				denominaciones[posicion] = cadena;
 				cadena = Desarrollo.addString(" y su precio ");
-				precios[posicionModificar] = cadena;
+				precios[posicion] = cadena;
 
 				break;
 
 			case 3:
 				System.out.println("BORRAR");
 				busqueda = Utilidades.pedirStringTexto("Que quieres borrar?");
-				posicionModificar = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
-				nombres[posicionModificar] = null;
-				denominaciones[posicionModificar] = null;
-				precios[posicionModificar] = null;
+				posicion = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
+				nombres[posicion] = "-";
+				denominaciones[posicion] = "-";
+				precios[posicion] = "-";
 
 				System.out.println(posicion);
 				break;
 			case 4:
 				System.out.println("BUSCAR");
 				busqueda = Utilidades.pedirStringTexto("Que quieres buscar?");
-				posicionBuscar = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
+				posicion = Desarrollo.buscarRegistroUsuario(busqueda, nombres, denominaciones, precios);
 
-				System.out.println(posicionBuscar);
+				System.out.println(posicion);
 
 				break;
 			case 5:
@@ -89,6 +98,9 @@ public class Principal {
 		System.out.println(Arrays.toString(denominaciones));
 		System.out.println(Arrays.toString(precios));
 
+	}
+
+	private static void funcionalidades() {
 	}
 
 }

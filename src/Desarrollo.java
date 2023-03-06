@@ -18,7 +18,7 @@ public class Desarrollo {
 	// MOSTRAR MENU
 	/**
 	 * 
-	 * @return devuelve la opcion elegida por el usuario
+	 * @return opcion devuelve la opcion elegida por el usuario
 	 */
 	public static int mostrarMenu() {
 		int opcion;
@@ -43,7 +43,7 @@ public class Desarrollo {
 	 * 
 	 * @param texto reutilizable en el main
 	 * 
-	 * @return la cadena introducida por el ususario
+	 * @return string cadena introducida por el ususario
 	 */
 	public static String addString(String texto) {
 
@@ -58,22 +58,25 @@ public class Desarrollo {
 	 * @param nombres
 	 * @param denominaciones
 	 * @param precios
-	 * @return
+	 * @return posicion
 	 */
-	public static int buscarPosicionVacia(String[] nombres, String[] denominaciones, String[] precios) {
-		int posicion = 0;
+	public static int buscarPosicionVacia(String busqueda,String[] nombres, String[] denominaciones, String[] precios) {
+		int posicion = -1;
 		int longitud = nombres.length;
 		int contador = 0;
 		boolean encontrado = false;
+		busqueda="-";
 
 		do {
-			if (nombres[posicion] == null) {
+			if (nombres[contador].equals(busqueda)) {
 				encontrado = true;
+				posicion= contador;
+				
 			} else {
-				posicion++;
+				contador++;
 			}
 
-		} while (!encontrado && posicion < nombres.length);
+		} while (!encontrado && posicion < longitud);
 		System.out.println(posicion + "metodo");
 		System.out.println(nombres.length + "metodo");
 
